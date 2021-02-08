@@ -14,23 +14,23 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "b_autores")
-public class AutoresModel implements Serializable{
+public class AutorModel implements Serializable {
 
 	private static final long serialVersionUID = 446206550955721929L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_autor")
 	private int idAutor;
-	
+
 	@Column(name = "nombre", length = 50, nullable = false)
 	private String nombre;
-	
+
 	@Column(name = "apellidos", length = 50, nullable = false)
 	private String apellidos;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(name  = "fecha_nacimiento", nullable = false)
+	@Column(name = "fecha_nacimiento", nullable = false)
 	private Date fechaNacimiento;
 
 	@Column(name = "nacionalidad")
@@ -76,7 +76,7 @@ public class AutoresModel implements Serializable{
 		this.nacionalidad = nacionalidad;
 	}
 
-	public AutoresModel(int idAutor, String nombre, String apellidos, Date fechaNacimiento, String nacionalidad) {
+	public AutorModel(int idAutor, String nombre, String apellidos, Date fechaNacimiento, String nacionalidad) {
 		super();
 		this.idAutor = idAutor;
 		this.nombre = nombre;
@@ -85,13 +85,13 @@ public class AutoresModel implements Serializable{
 		this.nacionalidad = nacionalidad;
 	}
 
-	public AutoresModel(int idAutor) {
+	public AutorModel(int idAutor) {
 		super();
 		this.idAutor = idAutor;
 	}
-	
-	public AutoresModel() {
+
+	public AutorModel() {
 		super();
 	}
-	
+
 }
