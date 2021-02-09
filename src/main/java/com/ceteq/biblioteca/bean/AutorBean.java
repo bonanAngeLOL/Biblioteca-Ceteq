@@ -67,11 +67,11 @@ public class AutorBean implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
-	public String setNacionalidad() {
+	public String getNacionalidad() {
 		return this.nacionalidad;
 	}
 	
-	public void getNacionalidad(String nacionalidad) {
+	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
 	
