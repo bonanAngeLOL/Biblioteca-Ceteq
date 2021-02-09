@@ -11,7 +11,7 @@ public class MultaBean implements Serializable {
 	@NotNull
 	private int idPrestamo;
 	@NotNull
-	private float saldo;
+	private double saldo;
 	@NotNull
 	private Date fechaMulta;
 	@NotNull
@@ -27,7 +27,7 @@ public class MultaBean implements Serializable {
 	
 	
 	
-	public MultaBean(int idMulta, int idPrestamo, float saldo, Date fechaMulta, Date fechaPago) {
+	public MultaBean(int idMulta, int idPrestamo, double saldo, Date fechaMulta, Date fechaPago) {
 		this.idMulta = idMulta;
 		this.idPrestamo = idPrestamo;
 		this.saldo = saldo;
@@ -50,7 +50,7 @@ public class MultaBean implements Serializable {
 		this.idPrestamo = idPrestamo;
 	}
 	
-	public float getSaldo() {
+	public double getSaldo() {
 		return this.saldo;
 	}
 	public void setSaldo(float saldo) {

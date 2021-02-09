@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import com.sun.istack.NotNull;
 
-public class AutoresBean implements Serializable {
+public class AutorBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int idAutor;
 	
@@ -21,11 +21,11 @@ public class AutoresBean implements Serializable {
 	@NotNull
 	private String nacionalidad;
 	
-	public AutoresBean() {
+	public AutorBean() {
 		
 	}
 	
-	public AutoresBean(int idAutor, String nombre, String apellidos, Date fechaNacimiento, String nacionalidad) {
+	public AutorBean(int idAutor, String nombre, String apellidos, Date fechaNacimiento, String nacionalidad) {
 		this.idAutor = idAutor;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -33,7 +33,7 @@ public class AutoresBean implements Serializable {
 		this.nacionalidad = nacionalidad;
 	}
 	
-	public AutoresBean(int idAutor) {
+	public AutorBean(int idAutor) {
 		this.idAutor = idAutor;
 	}
 	

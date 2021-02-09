@@ -12,6 +12,8 @@ public class PrestamoBean implements Serializable {
 	@NotNull
 	private int idUsuario;
 	@NotNull
+	private int idLibro;
+	@NotNull
 	private Date fechaPrestamo;
 	@NotNull
 	private Date fechaEntrega;
@@ -26,11 +28,20 @@ public class PrestamoBean implements Serializable {
 	
 	
 
-	public PrestamoBean(int idPrestamos, int idUsuario, Date fechaPrestamo, Date fechaEntrega) {
+	public PrestamoBean(int idPrestamos, int idUsuario, int idLibro, Date fechaPrestamo, Date fechaEntrega) {
 		this.idPrestamos = idPrestamos;
 		this.idUsuario = idUsuario;
+		this.idLibro = idLibro;
 		this.fechaPrestamo = fechaPrestamo;
 		this.fechaEntrega = fechaEntrega;
+	}
+
+	public int getIdLibro() {
+		return idLibro;
+	}
+
+	public void setIdLibro(int idLibro) {
+		this.idLibro = idLibro;
 	}
 
 	public int getIdPrestamos() {
