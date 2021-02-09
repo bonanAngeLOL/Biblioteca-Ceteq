@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Linux and VIM
+*.swp
+*attach_pid*
