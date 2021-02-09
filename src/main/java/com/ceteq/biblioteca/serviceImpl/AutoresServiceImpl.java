@@ -1,5 +1,6 @@
 package com.ceteq.biblioteca.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -54,20 +55,51 @@ public class AutoresServiceImpl implements AutoresService {
 
 	@Override
 	public List<AutorBean> findAll() {
-		// TODO Auto-generated method stub
+
+		List<AutorModel> autorModelsList = autorRepository.findAll();
+
+		List<AutorBean> autorBeansList = new ArrayList<>();
+
+		for (AutorModel autorModel : autorModelsList) {
+
+			AutorBean autorBean = new AutorBean();
+
+			autorBean.setIdAutor(autorModel.getIdAutor());
+			autorBean.setNombre(autorModel.getNombre());
+			autorBean.setApellidos(autorModel.getApellidos());
+			autorBean.setFechaNacimiento(autorModel.getFechaNacimiento());
+			autorBean.setNacionalidad(autorModel.getNacionalidad());
+
+			autorBeansList.add(autorBean);
+
+			return autorBeansList;
+		}
+
 		return null;
 	}
 
 	@Override
 	public Boolean updateAutor(AutorBean autorBean) {
-		// TODO Auto-generated method stub
+
+		AutorModel autorModel = this.autorRepository.findById(autorBean.getIdAutor()).orElseThrow();
+
+		autorModel.setNombre(autorBean.getNombre());
+		autorModel.setApellidos(autorBean.getApellidos());
+		autorModel.setFechaNacimiento(autorBean.getFechaNacimiento());
+		autorModel.setNacionalidad(autorBean.getNacionalidad());
+
+		this.autorRepository.save(autorModel);
+
 		return null;
 	}
 
 	@Override
 	public Boolean deleteAutor(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+
+		AutorModel autorModel = this.autorRepository.findById(id).orElseThrow();
+		this.autorRepository.delete(autorModel);
+
+		return true;
 	}
 
 }

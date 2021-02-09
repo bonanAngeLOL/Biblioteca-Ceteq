@@ -18,8 +18,8 @@ import com.ceteq.biblioteca.bean.AutorBean;
 import com.ceteq.biblioteca.service.AutoresService;
 
 @RestController
-@RequestMapping("/autores")
-public class AutoresController {
+@RequestMapping("/libros")
+public class LibrosController {
 
 	@Autowired
 	private AutoresService autoresService;
@@ -49,5 +49,4 @@ public class AutoresController {
 	public ResponseEntity<Boolean> actualizarUsuario(@Validated @RequestBody AutorBean autorBean) {
 		return new ResponseEntity<>(this.autoresService.updateAutor(autorBean), HttpStatus.OK);
 	}
-
 }
