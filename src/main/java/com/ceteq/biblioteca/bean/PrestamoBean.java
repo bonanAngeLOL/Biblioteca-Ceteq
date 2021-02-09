@@ -3,19 +3,34 @@ package com.ceteq.biblioteca.bean;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Prestamos implements Serializable {
+import com.sun.istack.NotNull;
+
+public class PrestamoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	private int idPrestamos;
+	@NotNull
 	private int idUsuario;
+	@NotNull
 	private Date fechaPrestamo;
+	@NotNull
 	private Date fechaEntrega;
 	
-	Prestamos(){
+	PrestamoBean(){
 		
 	}
 	
-	Prestamos(int idPrestamos){
+	PrestamoBean(int idPrestamos){
 		this.idPrestamos = idPrestamos;
+	}
+	
+	
+
+	public PrestamoBean(int idPrestamos, int idUsuario, Date fechaPrestamo, Date fechaEntrega) {
+		this.idPrestamos = idPrestamos;
+		this.idUsuario = idUsuario;
+		this.fechaPrestamo = fechaPrestamo;
+		this.fechaEntrega = fechaEntrega;
 	}
 
 	public int getIdPrestamos() {

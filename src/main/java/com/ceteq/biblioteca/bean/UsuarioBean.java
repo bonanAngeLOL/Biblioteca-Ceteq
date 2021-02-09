@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import com.sun.istack.NotNull;
 
-public class Usuario implements Serializable{
+public class UsuarioBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int idUsuario;
@@ -20,14 +20,36 @@ public class Usuario implements Serializable{
 	private String telefono;
 	private String direccion;
 	private String email;
+	private int idPrestamo;
 	
-	public Usuario() {
+	public UsuarioBean() {
 	}
 	
-	public Usuario(int idUsuario) {
+	public UsuarioBean(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	
+	public UsuarioBean(int idUsuario, String nombre, String apellidos, String curp, Date fechaNacimiento,
+			String telefono, String direccion, String email, int idPrestamo) {
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.curp = curp;
+		this.fechaNacimiento = fechaNacimiento;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.email = email;
+		this.idPrestamo = idPrestamo;
+	}
+
+	public int getIdPrestamo() {
+		return idPrestamo;
+	}
+
+	public void setIdPrestamo(int idPrestamo) {
+		this.idPrestamo = idPrestamo;
+	}
+
 	//get&set
 	public int getIdUsuario() {
 		return this.idUsuario;

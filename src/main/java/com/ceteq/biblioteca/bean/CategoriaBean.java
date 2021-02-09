@@ -2,18 +2,25 @@ package com.ceteq.biblioteca.bean;
 
 import java.io.Serializable;
 
-public class Categoria implements Serializable  {
+import com.sun.istack.NotNull;
+
+public class CategoriaBean implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	
 	private int idCategoria;
+	@NotNull
 	private String nombre;
 	
-	public Categoria() {
-		
+	public CategoriaBean() {
 	}
 	
-	public Categoria(int idCategoria) {
+	public CategoriaBean(int idCategoria) {
 		this.idCategoria = idCategoria;
+	}
+	
+	public CategoriaBean(int idCategoria, String nombre) {
+		this.idCategoria = idCategoria;
+		this.nombre = nombre;
 	}
 	
 	public int getIdCategoria() {

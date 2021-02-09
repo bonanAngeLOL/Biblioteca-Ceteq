@@ -25,9 +25,18 @@ public class AutoresBean implements Serializable {
 		
 	}
 	
+	public AutoresBean(int idAutor, String nombre, String apellidos, Date fechaNacimiento, String nacionalidad) {
+		this.idAutor = idAutor;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.fechaNacimiento = fechaNacimiento;
+		this.nacionalidad = nacionalidad;
+	}
+	
 	public AutoresBean(int idAutor) {
 		this.idAutor = idAutor;
 	}
+	
 	
 	//getter&setter
 	public int getIdAutor() {

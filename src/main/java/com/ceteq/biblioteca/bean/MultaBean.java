@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.sun.istack.NotNull;
 
-public class Multas implements Serializable {
+public class MultaBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int idMulta;
 	@NotNull
@@ -17,14 +17,24 @@ public class Multas implements Serializable {
 	@NotNull
 	private Date fechaPago;
 	
-	public Multas() {
+	public MultaBean() {
 		
 	}
 	
-	public Multas(int idMulta) {
+	public MultaBean(int idMulta) {
 		this.idMulta = idMulta;
 	}
 	
+	
+	
+	public MultaBean(int idMulta, int idPrestamo, float saldo, Date fechaMulta, Date fechaPago) {
+		this.idMulta = idMulta;
+		this.idPrestamo = idPrestamo;
+		this.saldo = saldo;
+		this.fechaMulta = fechaMulta;
+		this.fechaPago = fechaPago;
+	}
+
 	//get&set
 	public int getIdMulta() {
 		return this.idMulta;
