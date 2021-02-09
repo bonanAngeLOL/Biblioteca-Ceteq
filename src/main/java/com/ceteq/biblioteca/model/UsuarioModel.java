@@ -5,12 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -50,10 +47,10 @@ public class UsuarioModel implements Serializable {
 
 	@Column(name = "correo", length = 30, nullable = false)
 	private String correo;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "prestamo_id")
-	private PrestamoModel prestamoModel;
+
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "prestamo_id")
+//	private PrestamoModel prestamoModel;
 
 	public int getIdUsuario() {
 		return idUsuario;
@@ -119,8 +116,8 @@ public class UsuarioModel implements Serializable {
 		this.correo = correo;
 	}
 
-	public UsuarioModel(int idUsuario, String nombre, String apellidos, String curp, Date fechaNacimiento, String telefono,
-			String direcion, String correo) {
+	public UsuarioModel(int idUsuario, String nombre, String apellidos, String curp, Date fechaNacimiento,
+			String telefono, String direcion, String correo) {
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;

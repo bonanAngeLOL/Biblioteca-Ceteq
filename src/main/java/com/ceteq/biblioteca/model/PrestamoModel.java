@@ -2,7 +2,6 @@ package com.ceteq.biblioteca.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,8 +29,9 @@ public class PrestamoModel implements Serializable {
 	@Column(name = "id_prestamo")
 	private int idPrestamo;
 
-	@OneToMany(mappedBy = "prestamoModel")
-	private List<UsuarioModel> idUsuario;
+	@ManyToOne
+	@JoinColumn(name = "id_usuario", nullable = false)
+	private UsuarioModel idUsuario;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "fecha_prestamo", nullable = false)
@@ -42,10 +42,10 @@ public class PrestamoModel implements Serializable {
 	private Date fechaEntrega;
 
 	@OneToOne
-	@JoinColumn(name = "id_libro")
+	@JoinColumn(name = "id_libro", nullable = false)
 	private LibroModel idLibro;
 
-	public PrestamoModel(int idPrestamo, List<UsuarioModel> idUsuario, Date fechaPrestamo, Date fechaEntrega,
+	public PrestamoModel(int idPrestamo, UsuarioModel idUsuario, Date fechaPrestamo, Date fechaEntrega,
 			LibroModel idLibro) {
 		this.idPrestamo = idPrestamo;
 		this.idUsuario = idUsuario;
@@ -69,11 +69,11 @@ public class PrestamoModel implements Serializable {
 		this.idPrestamo = idPrestamo;
 	}
 
-	public List<UsuarioModel> getIdUsuario() {
+	public UsuarioModel getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(List<UsuarioModel> idUsuario) {
+	public void setIdUsuario(UsuarioModel idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
