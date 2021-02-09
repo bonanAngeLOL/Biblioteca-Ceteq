@@ -53,7 +53,7 @@ public class MultaBean implements Serializable {
 	public double getSaldo() {
 		return this.saldo;
 	}
-	public void setSaldo(float saldo) {
+	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 	
