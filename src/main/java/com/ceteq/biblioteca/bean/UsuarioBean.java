@@ -1,7 +1,7 @@
 package com.ceteq.biblioteca.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import com.sun.istack.NotNull;
 
@@ -20,7 +20,6 @@ public class UsuarioBean implements Serializable{
 	private String telefono;
 	private String direccion;
 	private String email;
-	private int idPrestamo;
 	
 	public UsuarioBean() {
 	}
@@ -30,7 +29,7 @@ public class UsuarioBean implements Serializable{
 	}
 	
 	public UsuarioBean(int idUsuario, String nombre, String apellidos, String curp, Date fechaNacimiento,
-			String telefono, String direccion, String email, int idPrestamo) {
+			String telefono, String direccion, String email) {
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -39,15 +38,6 @@ public class UsuarioBean implements Serializable{
 		this.telefono = telefono;
 		this.direccion = direccion;
 		this.email = email;
-		this.idPrestamo = idPrestamo;
-	}
-
-	public int getIdPrestamo() {
-		return idPrestamo;
-	}
-
-	public void setIdPrestamo(int idPrestamo) {
-		this.idPrestamo = idPrestamo;
 	}
 
 	//get&set

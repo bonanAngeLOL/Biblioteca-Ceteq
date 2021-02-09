@@ -1,7 +1,7 @@
 package com.ceteq.biblioteca.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import com.sun.istack.NotNull;
 
