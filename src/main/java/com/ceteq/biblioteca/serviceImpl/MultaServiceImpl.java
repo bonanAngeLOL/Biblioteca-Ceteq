@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ceteq.biblioteca.bean.MultaBean;
+import com.ceteq.biblioteca.bean.MultaBeanM;
+import com.ceteq.biblioteca.model.LibroModel;
 import com.ceteq.biblioteca.model.MultaModel;
 import com.ceteq.biblioteca.model.PrestamoModel;
+import com.ceteq.biblioteca.model.UsuarioModel;
 import com.ceteq.biblioteca.repository.MultaRepository;
 import com.ceteq.biblioteca.service.MultaService;
 @Service
@@ -35,19 +38,26 @@ public class MultaServiceImpl implements MultaService{
 	public String updateMulta(MultaBean multaBean) {
 		MultaModel multaModel = this.multaRepo.findById(multaBean.getIdMulta()).orElseThrow();
 		PrestamoModel prestamoModel = new PrestamoModel();
+		
 		prestamoModel.setIdPrestamo(multaBean.getIdPrestamo());
+		prestamoModel.setIdLibro(prestamoModel.getIdLibro());
+		prestamoModel.setIdUsuario(prestamoModel.getIdUsuario());
+		multaModel.setIdPrestamo(prestamoModel);
 		multaModel.setFechaMulta(multaBean.getFechaMulta());
 		multaModel.setFechaPago(multaBean.getFechaPago());
 		multaModel.setSaldo(multaBean.getSaldo());
-		multaModel.setIdPrestamo(prestamoModel);
 		this.multaRepo.save(multaModel);
-		return "Se guardo la multa con id: " + multaModel.getIdMulta();
+		return "Se guardo la multa con id: " + multaBean.getIdMulta();
 	}
 
 	@Override
 	public MultaBean getMulta(int idMulta) {
-		MultaModel multaModel = this.multaRepo.findById(idMulta).orElseThrow(null);
+		MultaModel multaModel = this.multaRepo.findById(idMulta).orElseThrow();
 		MultaBean multaBean = new MultaBean();
+		PrestamoModel prestamoModel = new PrestamoModel();
+		prestamoModel.setIdPrestamo(multaBean.getIdPrestamo());
+		prestamoModel.setIdLibro(prestamoModel.getIdLibro());
+		prestamoModel.setIdUsuario(prestamoModel.getIdUsuario());
 		multaBean.setIdMulta(multaModel.getIdMulta());
 		multaBean.setFechaMulta(multaModel.getFechaMulta());
 		multaBean.setFechaPago(multaModel.getFechaPago());
@@ -62,6 +72,10 @@ public class MultaServiceImpl implements MultaService{
 		List<MultaBean> multaBeanList = new ArrayList<>();
 		for(MultaModel multam: multaModelList) {
 			MultaBean multaBean = new MultaBean();
+			PrestamoModel prestamoModel = new PrestamoModel();
+			prestamoModel.setIdPrestamo(multaBean.getIdPrestamo());
+			prestamoModel.setIdLibro(prestamoModel.getIdLibro());
+			prestamoModel.setIdUsuario(prestamoModel.getIdUsuario());
 			multaBean.setIdMulta(multam.getIdMulta());
 			multaBean.setFechaMulta(multam.getFechaMulta());
 			multaBean.setFechaPago(multam.getFechaMulta());
@@ -75,6 +89,7 @@ public class MultaServiceImpl implements MultaService{
 	@Override
 	public String deleteMulta(int idMulta) {
 		MultaModel multaModel = this.multaRepo.findById(idMulta).orElseThrow();
+		
 		this.multaRepo.delete(multaModel);
 		return "Se elimino la multa con ID:  " + multaModel.getIdMulta();
 	}

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceteq.biblioteca.bean.MultaBean;
+import com.ceteq.biblioteca.bean.MultaBeanM;
 import com.ceteq.biblioteca.serviceImpl.MultaServiceImpl;
 
 @RestController
@@ -31,8 +32,8 @@ public ResponseEntity<String> creaMulta( @RequestBody MultaBean multaBean){
 }
 
 @PutMapping("/actualiza")
-public ResponseEntity<String> updateMulta(@Validated @RequestBody MultaBean multaBean){
-	return new ResponseEntity<String>(this.multaService.updateMulta(multaBean), HttpStatus.OK); 
+public ResponseEntity<String> updateMulta(@Validated @RequestBody MultaBean multaBeanM){
+	return new ResponseEntity<String>(this.multaService.updateMulta(multaBeanM), HttpStatus.OK); 
 }
 
 @GetMapping("/vermulta/{idMulta}")
