@@ -15,4 +15,7 @@ public interface PrestamoService {
 	public Boolean updatePrestamo(PrestamoBean prestamoBean);
 
 	public Boolean deletePrestamo(Integer id);
+	
+	public List<?>  findAllPrestamos();
+	public List<?> findAllLibrosPrestados();
 }

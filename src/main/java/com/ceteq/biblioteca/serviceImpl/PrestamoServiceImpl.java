@@ -110,4 +110,16 @@ public class PrestamoServiceImpl implements PrestamoService {
 		return true;
 	}
 
+	@Override
+	public List<?> findAllPrestamos() {
+		return this.prestamoRepository.findAllPrestamos();
+	}
+
+	@Override
+	public List<?> findAllLibrosPrestados() {
+		return this.prestamoRepository.findAllLibrosPrestados();
+	}
+	
+	
+
 }
