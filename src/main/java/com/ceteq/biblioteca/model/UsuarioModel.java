@@ -135,4 +135,11 @@ public class UsuarioModel implements Serializable {
 	public UsuarioModel() {
 	}
 
+    @Override
+    public String toString() {
+        return "UsuarioModel [apellidos=" + apellidos + ", correo=" + correo + ", curp=" + curp + ", direcion="
+                + direcion + ", fechaNacimiento=" + fechaNacimiento + ", idUsuario=" + idUsuario + ", nombre=" + nombre
+                + ", telefono=" + telefono + "]";
+    }
+
 }

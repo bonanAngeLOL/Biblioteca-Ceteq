@@ -11,7 +11,7 @@ public interface UsuarioService{
     public UsuarioBean findById(int idUsuario);
 
     public List<UsuarioBean> findAll();
-
-    public void deleteById(int idUsuario);
+    
+    public boolean deleteById(Integer idUsuario);
     
 }
