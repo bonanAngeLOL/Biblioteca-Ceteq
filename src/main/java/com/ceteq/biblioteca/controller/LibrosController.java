@@ -14,39 +14,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceteq.biblioteca.bean.AutorBean;
-import com.ceteq.biblioteca.service.AutoresService;
+import com.ceteq.biblioteca.bean.LibroBean;
+import com.ceteq.biblioteca.service.LibroService;
 
 @RestController
 @RequestMapping("/libros")
 public class LibrosController {
 
 	@Autowired
-	private AutoresService autoresService;
+	private LibroService libroService;
 
 	@PostMapping(path = "/create")
-	public ResponseEntity<?> agregar(@Validated @RequestBody AutorBean autorBean, BindingResult result) {
-		return new ResponseEntity<>(this.autoresService.createAutor(autorBean), HttpStatus.OK);
+	public ResponseEntity<?> agregar(@Validated @RequestBody LibroBean libroBean, BindingResult result) {
+		return new ResponseEntity<>(this.libroService.createLibro(libroBean), HttpStatus.OK);
 
 	}
 
 	@GetMapping(path = "/findById/{id}")
 	public ResponseEntity<?> findById(@PathVariable("id") Integer id) {
-		return new ResponseEntity<>(this.autoresService.findById(id), HttpStatus.OK);
+		return new ResponseEntity<>(this.libroService.findByID(id), HttpStatus.OK);
 	}
 
 	@GetMapping(path = "/findAll")
-	public ResponseEntity<?> mostrar() {
-		return new ResponseEntity<>(this.autoresService.findAll(), HttpStatus.OK);
+	public ResponseEntity<?> findAll() {
+		return new ResponseEntity<>(this.libroService.findAll(), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteId/{id}")
-	public ResponseEntity<Boolean> eliminar(@PathVariable("id") Integer id) {
-		return new ResponseEntity<>(this.autoresService.deleteAutor(id), HttpStatus.OK);
+	public ResponseEntity<Boolean> delete(@PathVariable("id") Integer id) {
+		return new ResponseEntity<>(this.libroService.deleteLibro(id), HttpStatus.OK);
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<Boolean> actualizarUsuario(@Validated @RequestBody AutorBean autorBean) {
-		return new ResponseEntity<>(this.autoresService.updateAutor(autorBean), HttpStatus.OK);
+	public ResponseEntity<Boolean> actualizarLibro(@Validated @RequestBody LibroBean libroBean) {
+		return new ResponseEntity<>(this.libroService.updateLibro(libroBean), HttpStatus.OK);
+
+	}
+
+	@GetMapping(path = "/libroscategoria")
+	public ResponseEntity<?> findByCategory() {
+		return new ResponseEntity<>(this.libroService.findByCategory(), HttpStatus.OK);
 	}
 }
