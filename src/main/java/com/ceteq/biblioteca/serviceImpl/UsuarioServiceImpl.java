@@ -20,11 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
     UsuarioRepository usuarioRepo;
 
-
-    @Override
-    public void deleteById(int idUsuario) {
-        usuarioRepo.deleteById(idUsuario);
-    }
+   
 
     @Override
     public List<UsuarioBean> findAll() {
@@ -77,5 +73,12 @@ public class UsuarioServiceImpl implements UsuarioService{
         usuarioRepo.save(usuarioM);
         return true;
     }
+
+    @Override
+    public boolean deleteById(Integer idUsuario) {
+        usuarioRepo.deleteById(idUsuario);
+        return true;
+    }
+
 
 }
