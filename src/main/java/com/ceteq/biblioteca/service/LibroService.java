@@ -10,7 +10,7 @@ public interface LibroService {
 
 	public LibroBean findByID(Integer id);
 
-	List<LibroBean> findAll();
+	public List<LibroBean> findAll();
 
 	public Boolean updateLibro(LibroBean libroBean);
 

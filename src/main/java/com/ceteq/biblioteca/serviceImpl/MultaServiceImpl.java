@@ -9,11 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ceteq.biblioteca.bean.MultaBean;
-import com.ceteq.biblioteca.bean.MultaBeanM;
-import com.ceteq.biblioteca.model.LibroModel;
 import com.ceteq.biblioteca.model.MultaModel;
 import com.ceteq.biblioteca.model.PrestamoModel;
-import com.ceteq.biblioteca.model.UsuarioModel;
 import com.ceteq.biblioteca.repository.MultaRepository;
 import com.ceteq.biblioteca.service.MultaService;
 @Service

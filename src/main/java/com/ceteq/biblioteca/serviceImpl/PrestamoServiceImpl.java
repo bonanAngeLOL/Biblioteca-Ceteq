@@ -7,15 +7,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-
-import com.ceteq.biblioteca.bean.AutorBean;
 import com.ceteq.biblioteca.bean.PrestamoBean;
-import com.ceteq.biblioteca.model.AutorModel;
 import com.ceteq.biblioteca.model.LibroModel;
 import com.ceteq.biblioteca.model.PrestamoModel;
 import com.ceteq.biblioteca.model.UsuarioModel;
-import com.ceteq.biblioteca.repository.AutorRepository;
 import com.ceteq.biblioteca.repository.PrestamoRepository;
 import com.ceteq.biblioteca.service.PrestamoService;
 

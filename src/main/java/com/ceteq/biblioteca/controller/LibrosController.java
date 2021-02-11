@@ -50,9 +50,12 @@ public class LibrosController {
 		return new ResponseEntity<>(this.libroService.updateLibro(libroBean), HttpStatus.OK);
 
 	}
-
+	
+	/*
 	@GetMapping(path = "/libroscategoria")
 	public ResponseEntity<?> findByCategory() {
 		return new ResponseEntity<>(this.libroService.findByCategory(), HttpStatus.OK);
-	}
+	}*/
+
+	
 }

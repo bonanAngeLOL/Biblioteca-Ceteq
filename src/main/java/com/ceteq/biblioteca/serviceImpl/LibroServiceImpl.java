@@ -3,7 +3,10 @@ package com.ceteq.biblioteca.serviceImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ceteq.biblioteca.bean.LibroBean;
 import com.ceteq.biblioteca.model.AutorModel;
@@ -11,7 +14,8 @@ import com.ceteq.biblioteca.model.CategoriaModel;
 import com.ceteq.biblioteca.model.LibroModel;
 import com.ceteq.biblioteca.repository.LibroRepository;
 import com.ceteq.biblioteca.service.LibroService;
-
+@Service
+@Transactional
 public class LibroServiceImpl implements LibroService {
 
 	@Autowired
