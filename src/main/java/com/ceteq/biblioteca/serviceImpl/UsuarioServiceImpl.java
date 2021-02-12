@@ -6,6 +6,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import com.ceteq.biblioteca.bean.UsuarioBean;
+import com.ceteq.biblioteca.bean.projection.DeudorProjection;
 import com.ceteq.biblioteca.model.UsuarioModel;
 import com.ceteq.biblioteca.repository.UsuarioRepository;
 import com.ceteq.biblioteca.service.UsuarioService;
@@ -78,6 +79,11 @@ public class UsuarioServiceImpl implements UsuarioService{
     public boolean deleteById(Integer idUsuario) {
         usuarioRepo.deleteById(idUsuario);
         return true;
+    }
+
+    @Override
+    public List<DeudorProjection> getDeudores() {
+        return usuarioRepo.getDeudores();
     }
 
 

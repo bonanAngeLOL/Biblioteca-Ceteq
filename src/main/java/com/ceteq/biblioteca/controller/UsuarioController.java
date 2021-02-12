@@ -55,4 +55,9 @@ public class UsuarioController{
         return new ResponseEntity<Boolean>(true, HttpStatus.OK);
     }
 
+    @GetMapping("/deudores")
+    public ResponseEntity<?> getUsuariosDeudores(){
+       return new ResponseEntity<>(usuarioServ.getDeudores(), HttpStatus.OK);
+    }
+
 }

@@ -15,7 +15,6 @@ public class PrestamoBean implements Serializable {
 	private int idLibro;
 	@NotNull
 	private Date fechaPrestamo;
-	@NotNull
 	private Date fechaEntrega;
 	
 	public PrestamoBean(){

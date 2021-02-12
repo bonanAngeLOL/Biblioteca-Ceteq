@@ -38,7 +38,7 @@ public class PrestamoModel implements Serializable {
 	private Date fechaPrestamo;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "fecha_entrega", nullable = false)
+	@Column(name = "fecha_entrega", nullable = true)
 	private Date fechaEntrega;
 
 	@OneToOne
