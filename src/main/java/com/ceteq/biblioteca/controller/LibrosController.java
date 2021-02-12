@@ -50,6 +50,17 @@ public class LibrosController {
 		return new ResponseEntity<>(this.libroService.updateLibro(libroBean), HttpStatus.OK);
 
 	}
+
+    @GetMapping("/autor/{NombreAutor}")
+    public ResponseEntity<?> listLibrosByAutorName(@PathVariable String NombreAutor){
+        String searchStr = NombreAutor.replaceAll("-", " ");
+        return new ResponseEntity<>(
+                    this.libroService.getLibroByNombreAutor(
+                            searchStr
+                        ),
+                    HttpStatus.OK
+                );
+    }
 	
 	/*
 	@GetMapping(path = "/libroscategoria")

@@ -3,6 +3,7 @@ package com.ceteq.biblioteca.service;
 import java.util.List;
 
 import com.ceteq.biblioteca.bean.LibroBean;
+import com.ceteq.biblioteca.bean.projection.LibroIdNombre;
 
 public interface LibroService {
 
@@ -15,5 +16,7 @@ public interface LibroService {
 	public Boolean updateLibro(LibroBean libroBean);
 
 	public Boolean deleteLibro(Integer id);
+
+    public List<LibroIdNombre> getLibroByNombreAutor(String NombreAutor);
 
 }
