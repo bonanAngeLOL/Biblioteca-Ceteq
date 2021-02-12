@@ -72,10 +72,9 @@ public class AutoresServiceImpl implements AutoresService {
 
 			autorBeansList.add(autorBean);
 
-			return autorBeansList;
 		}
 
-		return null;
+        return autorBeansList;
 	}
 
 	@Override
