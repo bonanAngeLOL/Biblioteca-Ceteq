@@ -1,5 +1,7 @@
 package com.ceteq.biblioteca.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +29,11 @@ public class AutoresController {
 	@PostMapping(path = "/create")
 	public ResponseEntity<?> agregar(@Validated @RequestBody AutorBean autorBean, BindingResult result) {
 		return new ResponseEntity<>(this.autoresService.createAutor(autorBean), HttpStatus.OK);
+	}
 
+	@PostMapping(path = "saveAutoresList")
+	public ResponseEntity<?> saveLibrosList(@Validated @RequestBody List<AutorBean> autorBeans, BindingResult result) {
+		return new ResponseEntity<>(this.autoresService.saveAutoresList(autorBeans), HttpStatus.OK);
 	}
 
 	@GetMapping(path = "/findById/{id}")

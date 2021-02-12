@@ -74,7 +74,7 @@ public class AutoresServiceImpl implements AutoresService {
 
 		}
 
-        return autorBeansList;
+		return autorBeansList;
 	}
 
 	@Override
@@ -98,6 +98,23 @@ public class AutoresServiceImpl implements AutoresService {
 		AutorModel autorModel = this.autorRepository.findById(id).orElseThrow();
 		this.autorRepository.delete(autorModel);
 
+		return true;
+	}
+
+	@Override
+	public Boolean saveAutoresList(List<AutorBean> autorBeansList) {
+
+		for (AutorBean autorBean : autorBeansList) {
+
+			AutorModel autorModel = new AutorModel();
+
+			autorModel.setNombre(autorBean.getNombre());
+			autorModel.setApellidos(autorBean.getApellidos());
+			autorModel.setFechaNacimiento(autorBean.getFechaNacimiento());
+			autorModel.setNacionalidad(autorBean.getNacionalidad());
+
+			this.autorRepository.save(autorModel);
+		}
 		return true;
 	}
 

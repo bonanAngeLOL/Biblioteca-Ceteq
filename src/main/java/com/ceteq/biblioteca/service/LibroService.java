@@ -8,6 +8,8 @@ import com.ceteq.biblioteca.bean.projection.LibroIdNombre;
 public interface LibroService {
 
 	public String createLibro(LibroBean libroBean);
+	
+	public Boolean saveLibrosList(List<LibroBean> libroBeanList);
 
 	public LibroBean findByID(Integer id);
 

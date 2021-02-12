@@ -80,4 +80,20 @@ public class CategoriaServiceImpl implements CategoriaService {
 		return true;
 	}
 
+	@Override
+	public Boolean saveCategoriaList(List<CategoriaBean> categoriaBeansList) {
+
+		for (CategoriaBean categoriaBean : categoriaBeansList) {
+
+			CategoriaModel categoriaModel = new CategoriaModel();
+
+			categoriaModel.setNombre(categoriaBean.getNombre());
+
+			categoriaRepository.save(categoriaModel);
+
+		}
+
+		return true;
+	}
+
 }

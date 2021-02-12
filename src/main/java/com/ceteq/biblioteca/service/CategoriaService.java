@@ -5,13 +5,16 @@ import java.util.List;
 import com.ceteq.biblioteca.bean.CategoriaBean;
 
 public interface CategoriaService {
-	public String createCategoria(CategoriaBean categoriaBean);//Crear
 
-	public CategoriaBean findByID(Integer id);//Buscar por ID
+	public String createCategoria(CategoriaBean categoriaBean);
 
-	List<CategoriaBean> findAll();//Buscar Todos
+	public Boolean saveCategoriaList(List<CategoriaBean> categoriaBeansList);
 
-	public Boolean updateCategoria(CategoriaBean categoriaBean);//Actualizar
+	public CategoriaBean findByID(Integer id);
 
-	public Boolean deleteCategoria(Integer id_categoria);//Borrar
+	List<CategoriaBean> findAll();
+
+	public Boolean updateCategoria(CategoriaBean categoriaBean);
+
+	public Boolean deleteCategoria(Integer id_categoria);
 }

@@ -1,5 +1,7 @@
 package com.ceteq.biblioteca.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,11 @@ public class LibrosController {
 
 	}
 
+	@PostMapping(path = "saveLibrosList")
+	public ResponseEntity<?> saveLibrosList(@Validated @RequestBody List<LibroBean> libroBean, BindingResult result) {
+		return new ResponseEntity<>(this.libroService.saveLibrosList(libroBean), HttpStatus.OK);
+	}
+
 	@GetMapping(path = "/findById/{id}")
 	public ResponseEntity<?> findById(@PathVariable("id") Integer id) {
 		return new ResponseEntity<>(this.libroService.findByID(id), HttpStatus.OK);
@@ -51,22 +58,16 @@ public class LibrosController {
 
 	}
 
-    @GetMapping("/autor/{NombreAutor}")
-    public ResponseEntity<?> listLibrosByAutorName(@PathVariable String NombreAutor){
-        String searchStr = NombreAutor.replaceAll("-", " ");
-        return new ResponseEntity<>(
-                    this.libroService.getLibroByNombreAutor(
-                            searchStr
-                        ),
-                    HttpStatus.OK
-                );
-    }
-	
-	/*
-	@GetMapping(path = "/libroscategoria")
-	public ResponseEntity<?> findByCategory() {
-		return new ResponseEntity<>(this.libroService.findByCategory(), HttpStatus.OK);
-	}*/
+	@GetMapping("/autor/{NombreAutor}")
+	public ResponseEntity<?> listLibrosByAutorName(@PathVariable String NombreAutor) {
+		String searchStr = NombreAutor.replaceAll("-", " ");
+		return new ResponseEntity<>(this.libroService.getLibroByNombreAutor(searchStr), HttpStatus.OK);
+	}
 
-	
+	/*
+	 * @GetMapping(path = "/libroscategoria") public ResponseEntity<?>
+	 * findByCategory() { return new
+	 * ResponseEntity<>(this.libroService.findByCategory(), HttpStatus.OK); }
+	 */
+
 }

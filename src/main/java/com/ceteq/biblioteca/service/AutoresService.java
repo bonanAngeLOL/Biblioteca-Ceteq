@@ -7,6 +7,8 @@ import com.ceteq.biblioteca.bean.AutorBean;
 public interface AutoresService {
 
 	public String createAutor(AutorBean autorBean);
+	
+	public Boolean saveAutoresList(List<AutorBean> autorBeansList);
 
 	public AutorBean findById(Integer id);
 
